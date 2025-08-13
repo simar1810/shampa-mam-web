@@ -4,7 +4,7 @@ export function AdditionalServices() {
   return (
     <section
       id="services"
-      className="py-16 md:py-24 bg-gradient-to-b from-white via-[#fefcfb] to-[#fff] scroll-mt-24"
+      className="mx-auto py-16 md:py-24 bg-gradient-to-b from-white via-[#fefcfb] to-[#fff] scroll-mt-24"
     >
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
