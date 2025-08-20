@@ -1,7 +1,7 @@
 export function MainGallery() {
-  const videoSrc = "https://www.youtube.com/embed/2LrJViFZQkQ";
+  const videoSrc = "https://www.youtube.com/embed/BvGJy4Y3oL8";
   return (
-    <section id="gallery" className="mx-auto py-12 md:py-20 bg-white scroll-mt-24">
+    <section id="gallery" className="py-12 md:py-20 bg-white scroll-mt-24">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-10">
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">

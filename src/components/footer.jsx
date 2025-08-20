@@ -38,11 +38,11 @@ export function Footer() {
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
           <div className="flex items-center gap-2 text-gray-600">
             <Phone className="h-4 w-4" />
-            <span>+91-9868443323</span>
+            <span>+91-986</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Phone className="h-4 w-4" />
-            <span>+91-9654431979</span>
+            <span>+91-969</span>
           </div>
           <div className="flex items-center gap-2 text-gray-600">
             <Mail className="h-4 w-4" />
@@ -50,7 +50,7 @@ export function Footer() {
           </div>
           <div className="flex items-start gap-2 text-gray-600">
             <MapPin className="h-4 w-4 mt-1" />
-            <span>A-13, Prashant vihar, opp. Lancer convent school new</span>
+            <span>A-13,</span>
           </div>
         </div>
         <div className="grid gap-2 col-span-full md:col-span-1">

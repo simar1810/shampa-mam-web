@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function AboutSection() {
   return (
-    <section id="about" className="mx-auto py-12 md:py-20 bg-white scroll-mt-24">
+    <section id="about" className="py-12 md:py-20 bg-white scroll-mt-24">
       <div className="container px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
@@ -26,11 +26,11 @@ export function AboutSection() {
         </div>
         <div className="flex justify-center lg:justify-end">
           <Image
-            src="/photo1.jpg"
+            src="/pooja.jpg"
             alt="Clinical Nutritionist"
             width={500}
             height={100}
-            className="rounded-lg shadow-lg h-[600px] w-full max-w-md lg:max-w-none object-cover object-[left_top]"
+            className="rounded-lg shadow-lg h-[600px] w-full max-w-md lg:max-w-none object-cover object-[center]"
           />
         </div>
       </div>

@@ -8,8 +8,9 @@ import { ScrollToTopButton } from "@/components/scroll-to-top-button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "New Leaf Image Consulting",
-  description: "Personal Dietician",
+  title: "Dietitian xyz - Template",
+  description:
+    "A template website for a dietitian, replicated from screenshots.",
 };
 
 export default function RootLayout({ children }) {

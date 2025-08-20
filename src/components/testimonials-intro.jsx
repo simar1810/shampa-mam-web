@@ -1,26 +1,74 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
+
 export function TestimonialsIntro() {
+  const achievementImages = [
+    "/award.jpg",
+    "/gal3.jpg",
+    "/gal4.jpg",
+    "/diet.jpg",
+    "/bg1.jpg",
+    "/bg2.png",
+    "/bg3.jpeg",
+  ];
+
+  // Auto-scroll logic for horizontal carousel
+  const scrollRef = useRef(null);
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    let scrollAmount = 0;
+    const scrollStep = 2; // px per interval
+    const interval = setInterval(() => {
+      if (scrollContainer) {
+        scrollAmount += scrollStep;
+        if (
+          scrollAmount >=
+          scrollContainer.scrollWidth - scrollContainer.clientWidth
+        ) {
+          scrollAmount = 0;
+        }
+        scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
+      }
+    }, 30); // smooth scroll every 30ms
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
-      id="testimonials"
-      className="mx-auto py-12 md:py-20 bg-custom-peach-light relative scroll-mt-24"
+      id="achievements"
+      className="py-12 md:py-20 bg-custom-peach-light relative scroll-mt-24"
     >
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[20px] border-b-white" />
       <div className="container px-4 md:px-6 text-center">
         <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-          WHAT THE CUSTOMER SAYS ABOUT US
+          ACHIEVEMENTS & RECOGNITION
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Don&apos;t Belive Me Check What <br className="hidden sm:block" />{" "}
-          Client Think of Us
+        <h2 className="text-3xl md:text-4xl font-bold mb-8">
+          Our Journey of Excellence
         </h2>
-        {/* Placeholder for actual testimonials */}
-        <div className="mt-8 text-gray-600">
-          {/* Testimonial carousel or grid would go here */}
-          <p>
-            &quot;Coming soon: Hear from our happy clients about their
-            transformation journeys!&quot;
-          </p>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto space-x-8 py-4 px-2"
+          style={{
+            scrollBehavior: "smooth",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          {achievementImages.map((img, idx) => (
+            <img
+              key={img}
+              src={img}
+              alt={`Achievement ${idx + 1}`}
+              className="rounded-lg shadow-lg w-64 h-64 object-cover border-4 border-white flex-shrink-0"
+              style={{ display: "block" }}
+            />
+          ))}
         </div>
+        <style>{`
+          #achievements .overflow-x-auto::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
       </div>
     </section>
   );

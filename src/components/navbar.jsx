@@ -76,7 +76,7 @@ export function Navbar() {
         <SheetContent side="left" className="w-64 sm:w-72 px-6 py-6">
           <Link href="#home" className="flex items-center gap-2 mb-8">
             <Image
-              src="/logo.jpg"
+              src="/images/dietitian-shweta-nakra-logo.png"
               alt="Dietitian xyz Logo"
               width={140}
               height={36}

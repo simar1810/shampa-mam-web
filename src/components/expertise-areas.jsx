@@ -4,80 +4,80 @@ import { Card, CardContent } from "@/components/ui/card";
 export function ExpertiseAreas() {
   const expertiseItems = [
     {
-      image:
-        "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
-      title: "Inflight Service Training",
+      image: "/section/diet.jpg",
+      title: "Diet Plans for Health Conditions",
       description:
-        "Professional training for cabin crew to deliver exceptional inflight service.",
+        "Personalized diet plans for thyroid, PCOS, diabetes, weight loss, heart health, blood pressure management, sports nutrition, skin and hair care.",
       bgColor: "bg-[#f8f0f4]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
-      title: "Sales Trainings",
+      image: "/section/reserch.jpg",
+      title: "Evidence & Research-Based Nutrition",
       description:
-        "Comprehensive sales skills development for individuals and teams.",
+        "All recommendations are backed by the latest scientific research and nutritional evidence.",
       bgColor: "bg-[#e6f4ea]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
-      title: "Inflight Sales Training (Duty Free)",
+      image: "/section/2.avif",
+      title: "Sustainable Diets Around Your Habits",
       description:
-        "Specialized training for duty-free sales and product knowledge onboard.",
+        "Diet plans are designed to fit your existing eating habits and lifestyle for long-term success.",
       bgColor: "bg-[#fce4ec]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
-      title: "Corporate Grooming & Image Management",
+      image: "/section/social.jpeg",
+      title: "Social Life & Nutrition",
       description:
-        "Enhancing professional appearance and personal branding in corporate settings.",
+        "Enjoy your favorite foods and manage nutrition even with a busy social life.",
       bgColor: "bg-[#ffe0b2]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80",
-      title: "Business & Social Etiquette / Executive Presence",
+      image: "/section/1.webp",
+      title: "Corporate Professionals",
       description:
-        "Mastering etiquette and executive presence for business and social success.",
+        "Easy, carry-along meal plans for busy corporate clients who can't make separate meals.",
       bgColor: "bg-[#e3f2fd]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
-      title: "Cross Cultural Sensitivity",
+      image: "/section/women.jpg",
+      title: "Women in Their 40s",
       description:
-        "Training to foster understanding and respect for diverse cultures.",
+        "Support for peri and post-menopause, hormone balance, and overall wellness.",
       bgColor: "bg-[#f9fbe7]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=600&q=80",
-      title: "Customer Centricity Training Programs",
+      image: "/gal2.jpg",
+      title: "College Students",
       description:
-        "Programs focused on building customer-first mindset and service excellence.",
+        "Fun and interesting meal and snack ideas for students on the go.",
       bgColor: "bg-[#fff3e0]",
     },
     {
-      image:
-        "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80",
-      title: "People Development Programs",
+      image: "/bg2.png",
+      title: "Fitness Enthusiasts",
       description:
-        "Empowering individuals with skills for personal and professional growth.",
+        "Nutrition plans to fuel your body, build stamina, and support muscle growth.",
       bgColor: "bg-[#ede7f6]",
+    },
+    {
+      image: "/bg3.jpeg",
+      title: "Midlife Metabolism Reset for Men",
+      description:
+        "Specialized plans to help men in midlife reset metabolism and improve vitality.",
+      bgColor: "bg-[#e0f7fa]",
     },
   ];
   return (
-    <section id="expertise" className="mx-auto py-12 md:py-20 bg-white scroll-mt-24">
+    <section id="expertise" className="py-12 md:py-20 bg-white scroll-mt-24">
       <div className="container px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Our Expertise Area
+          Expertise & Services
         </h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-          Our dedicated Services of experienced dietitians is committed to
-          helping you achieve your health and wellness goals through
-          personalized and evidence-based nutrition guidance.
+          We offer evidence-based, sustainable nutrition plans tailored to your
+          lifestyle and health needs. Our services cover a wide range of
+          conditions and client types, ensuring practical solutions for every
+          stage of life.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {expertiseItems.map((item, index) => (
