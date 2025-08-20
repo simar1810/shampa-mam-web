@@ -4,7 +4,7 @@ import { Mail } from "lucide-react";
 export function ContactCTA() {
   return (
     <section id="contact" className="py-12 md:py-20 bg-white scroll-mt-24">
-      <div className="container px-4 md:px-6 text-center">
+      <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Having a hard time?
         </h2>

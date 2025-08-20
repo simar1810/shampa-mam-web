@@ -7,7 +7,7 @@ export function ValueProposition() {
       id="value"
       className="py-16 md:py-24 bg-gradient-to-b from-white via-[#fefbf8] to-[#fff] scroll-mt-24"
     >
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
           <Card className="bg-gradient-to-br from-[#e6f4ec] to-[#c5edd7] border-none shadow-lg rounded-2xl p-8 flex flex-col items-center text-center transition hover:scale-[1.02] hover:shadow-xl duration-300">

@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 export function GoalJourney() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-white via-[#fdfbf9] to-[#fff]">
-      <div className="container px-4 md:px-6 text-center">
+      <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
           Goal-Oriented Journey
         </h2>
