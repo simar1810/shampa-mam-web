@@ -5,7 +5,7 @@ import { MessageCircle } from "lucide-react";
 export function BookAppointmentCTA() {
   return (
     <section className="py-12 md:py-20 bg-white">
-      <div className="container px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="relative bg-gray-100 rounded-lg p-8 md:p-12 text-center overflow-hidden shadow-lg">
           <Image
             src="/bg1.jpg"

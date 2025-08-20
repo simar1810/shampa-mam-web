@@ -38,7 +38,7 @@ export function TestimonialsIntro() {
       id="achievements"
       className="py-12 md:py-20 bg-custom-peach-light relative scroll-mt-24"
     >
-      <div className="container px-4 md:px-6 text-center">
+      <div className="container mx-auto px-4 md:px-6 text-center">
         <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
           ACHIEVEMENTS & RECOGNITION
         </p>
