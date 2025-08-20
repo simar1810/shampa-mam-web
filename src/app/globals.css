@@ -123,3 +123,25 @@
 
 /* Smooth scrolling for hash links */
 html { scroll-behavior: smooth; }
+
+.shimmer-box {
+  border-radius: 10px;
+  background-image: linear-gradient(
+    100deg,
+    #f6f7f815 0px,
+    #edeef1e0 40px,
+    #f6f7f800 80px
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}

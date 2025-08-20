@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 export function BookAppointmentCTA() {
   return (
@@ -19,15 +20,18 @@ export function BookAppointmentCTA() {
               Book Your Appointment
             </h2>
             <p className="text-4xl md:text-5xl font-bold text-custom-green-dark">
-              +91-9868443323
+              +91-9152016080
             </p>
-            <p className="text-lg text-gray-700">
-              email at nutritionbyshweta@gmail.com
-            </p>
-            <Button className="bg-green-600 hover:bg-custom-green-dark/90 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-md flex items-center gap-2 mx-auto">
+
+            <Link
+              href="https://wa.me/919152016080"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 hover:bg-custom-green-dark/90 w-[25%] h-[15%] text-white px-8 py-6 text-lg font-semibold rounded-full shadow-md flex items-center gap-2 mx-auto"
+            >
               <MessageCircle className="h-6 w-6" />
               CHAT ON WHATSAPP!
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

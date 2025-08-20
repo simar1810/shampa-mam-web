@@ -26,6 +26,27 @@ const slides = [
 ];
 
 export function HeroSection() {
+  useEffect(() => {
+    const link = document.createElement("link");
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: "https://calendly.com/officialnutristudio",
+      });
+    }
+  };
+
   const slides = [
     {
       image: "/main.png",
@@ -85,7 +106,11 @@ export function HeroSection() {
         <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-xl leading-relaxed text-orange-400">
           {subheading}
         </p>
-        <Button className="bg-orange-400 text-white hover:bg-orange-500 px-8 py-4 text-lg font-bold rounded-md shadow-lg transition duration-300">
+
+        <Button
+          onClick={handleClick}
+          className="bg-orange-400 shimmer-box text-white hover:bg-orange-500 px-10 py-9 text-2xl font-bold rounded-md shadow-lg transition duration-300"
+        >
           Book Your Consultation
         </Button>
       </div>

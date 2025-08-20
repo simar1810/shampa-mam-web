@@ -38,20 +38,14 @@ export function Footer() {
           <h3 className="text-lg font-semibold mb-2">Contact Us</h3>
           <div className="flex items-center gap-2 text-gray-600">
             <Phone className="h-4 w-4" />
-            <span>+91-986</span>
+            <span>+91-9152016080</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-600">
-            <Phone className="h-4 w-4" />
-            <span>+91-969</span>
-          </div>
+        
           <div className="flex items-center gap-2 text-gray-600">
             <Mail className="h-4 w-4" />
-            <span>d@gmail.com</span>
+            <span>officialnutristudio@gmail.com</span>
           </div>
-          <div className="flex items-start gap-2 text-gray-600">
-            <MapPin className="h-4 w-4 mt-1" />
-            <span>A-13,</span>
-          </div>
+          
         </div>
         <div className="grid gap-2 col-span-full md:col-span-1">
           <h3 className="text-lg font-semibold mb-2">Disclaimer:</h3>
@@ -60,7 +54,6 @@ export function Footer() {
             genetics, activity factor & compliance on Diet & other instructions.
           </p>
         </div>
-      
       </div>
     </footer>
   );

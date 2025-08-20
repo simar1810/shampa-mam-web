@@ -1,35 +1,32 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function TestimonialsIntro() {
-  const achievementImages = [
-    "/award.jpg",
-    "/gal3.jpg",
-    "/gal4.jpg",
-    "/diet.jpg",
-    "/bg1.jpg",
-    "/bg2.png",
-    "/bg3.jpeg",
-  ];
+  const achievementImages = ["/pa1.jpg", "/pa2.jpg", "/pa3.jpg"];
 
-  // Auto-scroll logic for horizontal carousel
   const scrollRef = useRef(null);
+
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     let scrollAmount = 0;
-    const scrollStep = 2; // px per interval
+    const scrollStep = 1.5; // px per interval (adjust for speed)
+
     const interval = setInterval(() => {
       if (scrollContainer) {
         scrollAmount += scrollStep;
-        if (
-          scrollAmount >=
-          scrollContainer.scrollWidth - scrollContainer.clientWidth
-        ) {
+
+        if (scrollAmount >= scrollContainer.scrollWidth / 2) {
+          // reset seamlessly (since we duplicate the images)
           scrollAmount = 0;
         }
-        scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
+
+        scrollContainer.scrollTo({
+          left: scrollAmount,
+          behavior: "auto", // no smooth to avoid jitter in loop
+        });
       }
-    }, 30); // smooth scroll every 30ms
+    }, 16); // ~60fps
+
     return () => clearInterval(interval);
   }, []);
 
@@ -45,27 +42,30 @@ export function TestimonialsIntro() {
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           Our Journey of Excellence
         </h2>
+
+        {/* Scrolling container */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto space-x-8 py-4 px-2"
+          className="flex overflow-x-hidden space-x-8 py-4 px-2"
           style={{
-            scrollBehavior: "smooth",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
           }}
         >
-          {achievementImages.map((img, idx) => (
+          {/* Duplicate images for seamless loop */}
+          {[...achievementImages, ...achievementImages].map((img, idx) => (
             <img
-              key={img}
+              key={idx}
               src={img}
               alt={`Achievement ${idx + 1}`}
-              className="rounded-lg shadow-lg w-64 h-64 object-cover border-4 border-white flex-shrink-0"
-              style={{ display: "block" }}
+              className="rounded-lg shadow-lg w-[500px] h-full object-cover border-4 border-white flex-shrink-0"
             />
           ))}
         </div>
+
+        {/* Hide scrollbar */}
         <style>{`
-          #achievements .overflow-x-auto::-webkit-scrollbar {
+          #achievements .overflow-x-hidden::-webkit-scrollbar {
             display: none;
           }
         `}</style>

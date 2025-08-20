@@ -1,6 +1,21 @@
+"use client";
 import { FileText, Home, Ban } from "lucide-react";
+import { motion } from "framer-motion";
 
 export function AdditionalServices() {
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.85 },
+    visible: (i) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: i * 0.25,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <section
       id="services"
@@ -12,7 +27,14 @@ export function AdditionalServices() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div className="bg-gradient-to-br from-[#d7f5e9] to-[#b0ead2] rounded-2xl p-8 text-center shadow-lg hover:scale-[1.02] transition duration-300">
+          <motion.div
+            custom={0}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="bg-gradient-to-br from-[#d7f5e9] to-[#b0ead2] rounded-2xl p-8 text-center shadow-lg hover:scale-[1.02] transition duration-300"
+          >
             <FileText className="h-12 w-12 text-custom-green-dark mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               Diet Friendly Recipes
@@ -21,10 +43,17 @@ export function AdditionalServices() {
               Eat well, live well — discover deliciously healthy meals crafted
               for your goals.
             </p>
-          </div>
+          </motion.div>
 
           {/* Card 2 */}
-          <div className="bg-gradient-to-br from-[#fff2d5] to-[#ffe3ad] rounded-2xl p-8 text-center shadow-lg hover:scale-[1.02] transition duration-300">
+          <motion.div
+            custom={1}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="bg-gradient-to-br from-[#fff2d5] to-[#ffe3ad] rounded-2xl p-8 text-center shadow-lg hover:scale-[1.02] transition duration-300"
+          >
             <Home className="h-12 w-12 text-yellow-600 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               Homemade Meals
@@ -33,10 +62,17 @@ export function AdditionalServices() {
               From our experience to your plate — home-cooked meals are the
               heart of happiness.
             </p>
-          </div>
+          </motion.div>
 
           {/* Card 3 */}
-          <div className="bg-gradient-to-br from-[#ffd8d8] to-[#fbbbbb] rounded-2xl p-8 text-center shadow-lg hover:scale-[1.02] transition duration-300">
+          <motion.div
+            custom={2}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="bg-gradient-to-br from-[#ffd8d8] to-[#fbbbbb] rounded-2xl p-8 text-center shadow-lg hover:scale-[1.02] transition duration-300"
+          >
             <Ban className="h-12 w-12 text-red-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-gray-800 mb-2">
               No Supplements
@@ -45,7 +81,7 @@ export function AdditionalServices() {
               Embrace your true potential — no shortcuts, no supplements, just
               nature and nourishment.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
