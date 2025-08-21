@@ -20,14 +20,14 @@ export function BookAppointmentCTA() {
               Book Your Appointment
             </h2>
             <p className="text-4xl md:text-5xl font-bold text-custom-green-dark">
-              +91-9152016080
+              +91-9152807080
             </p>
 
             <Link
-              href="https://wa.me/919152016080"
+              href="https://wa.me/9152807080"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-custom-green-dark/90 w-[25%] h-[15%] text-white px-8 py-6 text-lg font-semibold rounded-full shadow-md flex items-center gap-2 mx-auto"
+              className="bg-green-600 hover:bg-custom-green-dark/90 w-full md:w-[25%] md:h-[15%] text-white px-8 py-6 text-lg font-semibold rounded-full shadow-md flex items-center gap-2 mx-auto"
             >
               <MessageCircle className="h-6 w-6" />
               CHAT ON WHATSAPP!

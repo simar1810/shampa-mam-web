@@ -30,12 +30,7 @@ export function Navbar() {
         >
           Home
         </Link>
-        <Link
-          href="#about"
-          className="hover:text-custom-green-dark transition-colors"
-        >
-          About Me
-        </Link>
+
         <Link
           href="#services"
           className="hover:text-custom-green-dark transition-colors"
@@ -43,7 +38,13 @@ export function Navbar() {
           Services
         </Link>
         <Link
-          href="#testimonials"
+          href="#about"
+          className="hover:text-custom-green-dark transition-colors"
+        >
+          About Me
+        </Link>
+        <Link
+          href="#gallery"
           className="hover:text-custom-green-dark transition-colors"
         >
           Testimonials

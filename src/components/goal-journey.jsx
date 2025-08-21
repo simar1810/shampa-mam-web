@@ -29,7 +29,7 @@ export function GoalJourney() {
             &quot;Hey Delhi folks! Balance your lovely chaats and flavorful
             cravings with nourishing home-cooked meals. Let&apos;s take your
             health on a joyful journey with the best Dietitian and Nutritionist
-            in Delhi NCR.&quot;
+            in Mumbai.&quot;
           </p>
         </div>
 

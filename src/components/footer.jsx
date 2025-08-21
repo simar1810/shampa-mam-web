@@ -5,7 +5,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer className="bg-white py-12 md:py-16 border-t">
-      <div className="container grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 md:px-6">
+      <div className="container  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 md:px-6">
         <div className="flex flex-col items-start gap-4">
           <Link href="#" className="flex items-center gap-2">
             <Image
@@ -18,15 +18,15 @@ export function Footer() {
             <span className="sr-only">Dietitian xyz</span>
           </Link>
           <div className="flex gap-4 mt-4">
-            <Link
+            {/* <Link
               href="#"
               className="text-gray-600 hover:text-gray-900 border border-gray-300 rounded-full p-2"
             >
               <Facebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
-            </Link>
+            </Link> */}
             <Link
-              href="#"
+              href="https://www.instagram.com/nutristudiobypooja?igsh=MXIxazVnNmNtYXV5bw=="
               className="text-gray-600 hover:text-gray-900 border border-gray-300 rounded-full p-2"
             >
               <Instagram className="h-5 w-5" />

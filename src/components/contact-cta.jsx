@@ -10,7 +10,7 @@ export function ContactCTA() {
           Having a hard time?
         </h2>
         <p className="text-xl md:text-2xl font-semibold text-gray-700 mb-8">
-          Get in touch! With Best Dietitian and Nutritionist in Delhi NCR
+          Get in touch! With Best Dietitian and Nutritionist in Mumbai
         </p>
         <p className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
           +91-9152016080
@@ -23,7 +23,7 @@ export function ContactCTA() {
           <Mail className="h-6 w-6" />
           Get In Touch
         </Link>
-      </div>  
+      </div>
     </section>
   );
 }
