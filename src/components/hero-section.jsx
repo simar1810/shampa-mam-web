@@ -49,7 +49,7 @@ export function HeroSection() {
 
   const slides = [
     {
-      image: "/main.png",
+      image: "/diet.jpg",
       heading: "Sustainable Nutrition Plans",
       subheading:
         "Personalized diet plans for thyroid, PCOS, diabetes, weight loss, heart health, sports nutrition, skin and hair care—built around your lifestyle.",
@@ -61,13 +61,13 @@ export function HeroSection() {
         "Corporate professionals, women in their 40s, college students, fitness enthusiasts, and men seeking midlife metabolism reset—there's a plan for you.",
     },
     {
-      image: "/bg3.jpeg",
+      image: "/bg3.jpg",
       heading: "Evidence-Based & Enjoyable",
       subheading:
         "Research-backed nutrition, sustainable habits, and your favorite foods included. Achieve your goals with support and flexibility.",
     },
     {
-      image: "/gal1.jpg",
+      image: "/bg4.jpeg",
       heading: "Achieve Your Goals With Confidence",
       subheading:
         "Evidence-based guidance and practical solutions for every stage of life. Book your consultation today!",
@@ -92,10 +92,10 @@ export function HeroSection() {
         key={image}
         src={image}
         alt="Hero Slide"
-        fill
         className="object-cover z-0 transition-opacity duration-700 ease-in-out"
-        quality={100}
         priority
+        fill
+        quality={100}
         style={{ transition: "opacity 0.7s" }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />

@@ -26,7 +26,7 @@ export function GoalJourney() {
             Goal-Oriented Journey
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-            &quot;Hey Delhi folks! Balance your lovely chaats and flavorful
+            &quot;Hey Mumbai folks! Balance your lovely chaats and flavorful
             cravings with nourishing home-cooked meals. Let&apos;s take your
             health on a joyful journey with the best Dietitian and Nutritionist
             in Mumbai.&quot;
