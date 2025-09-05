@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AssessmentForm } from "@/components/assessment-form";
 
 export default function ThankYou() {
   const params = useSearchParams();
@@ -9,6 +10,43 @@ export default function ThankYou() {
   const [status, setStatus] = useState("loading");
   const [showModal, setShowModal] = useState(false);
   const [timer, setTimer] = useState(3);
+  const [showAssessmentForm, setShowAssessmentForm] = useState(true); // Show form first
+  const [assessmentCompleted, setAssessmentCompleted] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [calendlyLoaded, setCalendlyLoaded] = useState(false);
+
+  // Function to load Calendly script
+  const loadCalendlyScript = () => {
+    if (calendlyLoaded) return; // Don't load if already loaded
+
+    console.log("Loading Calendly script...");
+
+    // Check if Calendly is already loaded
+    if (window.Calendly) {
+      console.log("Calendly already loaded");
+      setCalendlyLoaded(true);
+      return;
+    }
+
+    // Load CSS
+    const link = document.createElement("link");
+    link.href = "https://assets.calendly.com/assets/external/widget.css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+
+    // Load JS
+    const script = document.createElement("script");
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
+    script.async = true;
+    script.onload = () => {
+      console.log("Calendly script loaded successfully");
+      setCalendlyLoaded(true);
+    };
+    script.onerror = () => {
+      console.error("Failed to load Calendly script");
+    };
+    document.body.appendChild(script);
+  };
 
   useEffect(() => {
     if (!token) {
@@ -22,21 +60,37 @@ export default function ThankYou() {
           `${process.env.NEXT_PUBLIC_API_URL}/razorpay/verify-token?token=${token}`
         );
         const data = await res.json();
-        console.log(data);
+        console.log("Token verification response:", data);
         const valid = data.valid || (data.data && data.data.valid);
         if (valid) {
           setStatus("valid");
 
-          // Inject Calendly script dynamically
-          const link = document.createElement("link");
-          link.href = "https://assets.calendly.com/assets/external/widget.css";
-          link.rel = "stylesheet";
-          document.head.appendChild(link);
+          // Store user data if available in the response
+          if (data.data && data.data.userDetails) {
+            console.log("User data found in response:", data.data.userDetails);
+            setUserData(data.data.userDetails);
+          } else {
+            console.log("No user data found in token verification response");
+            // Try to get user data from other possible locations in the response
+            if (
+              data.data &&
+              (data.data.name || data.data.email || data.data.phoneNumber)
+            ) {
+              console.log("Found user data in data object:", {
+                name: data.data.name,
+                email: data.data.email,
+                phoneNumber: data.data.phoneNumber,
+              });
+              setUserData({
+                name: data.data.name,
+                email: data.data.email,
+                phoneNumber: data.data.phoneNumber,
+              });
+            }
+          }
 
-          const script = document.createElement("script");
-          script.src = "https://assets.calendly.com/assets/external/widget.js";
-          script.async = true;
-          document.body.appendChild(script);
+          // Load Calendly script immediately when token is valid
+          loadCalendlyScript();
         } else {
           setStatus("invalid");
         }
@@ -49,9 +103,25 @@ export default function ThankYou() {
     verifyToken();
   }, [token]);
 
-  // Calendly event listener for redirect after booking
+  // Initialize Calendly widget when script is loaded and assessment is completed
   useEffect(() => {
-    if (status === "valid") {
+    if (calendlyLoaded && assessmentCompleted && !showAssessmentForm) {
+      console.log("Initializing Calendly widget...");
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        if (window.Calendly) {
+          window.Calendly.initInlineWidget({
+            url: "https://calendly.com/officialnutristudio",
+            parentElement: document.getElementById("calendly-widget"),
+          });
+        }
+      }, 100);
+    }
+  }, [calendlyLoaded, assessmentCompleted, showAssessmentForm]);
+
+  // Calendly event listener for showing final confirmation after booking
+  useEffect(() => {
+    if (status === "valid" && assessmentCompleted) {
       const handler = (e) => {
         if (e.data.event === "calendly.event_scheduled") {
           setShowModal(true);
@@ -61,7 +131,7 @@ export default function ThankYou() {
       window.addEventListener("message", handler);
       return () => window.removeEventListener("message", handler);
     }
-  }, [status]);
+  }, [status, assessmentCompleted]);
 
   // Countdown timer for modal
   useEffect(() => {
@@ -75,6 +145,15 @@ export default function ThankYou() {
       window.location.href = "/";
     }
   }, [showModal, timer]);
+
+  // Handle assessment form completion
+  const handleAssessmentComplete = (assessmentData, apiResponse) => {
+    console.log("Assessment completed:", assessmentData);
+    console.log("API Response:", apiResponse);
+    setAssessmentCompleted(true);
+    setShowAssessmentForm(false);
+    // Don't show modal yet - wait for Calendly booking
+  };
 
   if (status === "loading") {
     return (
@@ -131,31 +210,64 @@ export default function ThankYou() {
   // ✅ Valid token
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gradient-to-br from-orange-50 to-white animate-fadeIn">
-      <h1 className="text-4xl font-extrabold mb-4 text-orange-600 animate-slideDown">
-        Payment Successful 🎉
-      </h1>
-      <p className="mb-8 text-lg text-gray-700 text-center max-w-lg animate-fadeInSlow">
-        Thank you for your payment. Please book your consultation below to
-        confirm your slot.
-      </p>
+      {showAssessmentForm ? (
+        <>
+          <h1 className="text-4xl font-extrabold mb-4 text-orange-600 animate-slideDown">
+            Payment Successful 🎉
+          </h1>
+          <p className="mb-8 text-lg text-gray-700 text-center max-w-lg animate-fadeInSlow">
+            Thank you for your payment! Please complete this assessment form
+            first, then we'll help you book your consultation.
+          </p>
 
-      {/* Calendly Inline Embed with redirect after booking */}
-      <div
-        className="calendly-inline-widget w-full shadow-xl rounded-xl border border-gray-200 overflow-hidden animate-scaleUp"
-        data-url="https://calendly.com/officialnutristudio"
-        style={{ minWidth: "320px", height: "700px" }}
-        id="calendly-widget"
-      ></div>
+          {/* Assessment Form */}
+          <AssessmentForm
+            onComplete={handleAssessmentComplete}
+            userData={userData}
+          />
+        </>
+      ) : (
+        <>
+          <h1 className="text-4xl font-extrabold mb-4 text-orange-600 animate-slideDown">
+            Assessment Complete! 📋
+          </h1>
+          <p className="mb-8 text-lg text-gray-700 text-center max-w-lg animate-fadeInSlow">
+            Great! Now please book your consultation below to confirm your slot.
+          </p>
+
+          {/* Calendly Inline Embed with redirect after booking */}
+          {calendlyLoaded ? (
+            <div
+              className="calendly-inline-widget w-full shadow-xl rounded-xl border border-gray-200 overflow-hidden animate-scaleUp"
+              data-url="https://calendly.com/officialnutristudio"
+              style={{ minWidth: "320px", height: "700px" }}
+              id="calendly-widget"
+            ></div>
+          ) : (
+            <div
+              className="w-full shadow-xl rounded-xl border border-gray-200 overflow-hidden animate-scaleUp flex items-center justify-center"
+              style={{ minWidth: "320px", height: "700px" }}
+            >
+              <div className="text-center">
+                <div className="w-8 h-8 border-4 border-orange-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                <p className="text-gray-600">Loading booking calendar...</p>
+              </div>
+            </div>
+          )}
+        </>
+      )}
 
       {/* Thank You Modal with timer */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center animate-fadeIn">
           <div className="bg-white rounded-2xl shadow-2xl px-10 py-8 flex flex-col items-center text-center animate-scaleUp">
             <h2 className="text-3xl font-bold text-orange-600 mb-3">
-              Thank You!
+              All Set! 🎉
             </h2>
             <p className="text-lg text-gray-700 mb-2">
-              Your meeting is booked. We look forward to speaking with you! An email confirmation has been sent.
+              {assessmentCompleted
+                ? "Your consultation is booked and assessment is complete. We have all the information we need to provide you with the best consultation experience!"
+                : "Your meeting is booked. We look forward to speaking with you! An email confirmation has been sent."}
             </p>
             <p className="text-base text-gray-500">
               Redirecting to home in{" "}
