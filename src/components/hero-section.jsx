@@ -71,7 +71,7 @@ export function HeroSection() {
 
         <BookConsultationButton
           buttonText="Book Your Consultation"
-          className="px-10 py-9 text-2xl shimmer-box bg-orange-400 text-white hover:bg-orange-500"
+          className="px-4 py-6 text-base md:px-10 md:py-9 md:text-2xl shimmer-box bg-orange-400 text-white hover:bg-orange-500"
       />
 
       </div>

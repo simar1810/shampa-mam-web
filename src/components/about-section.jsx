@@ -25,9 +25,8 @@ export function AboutSection() {
             needs.
           </p>
            <BookConsultationButton
-              buttonText="Book Your Consultation"
-            className="px-4 py-6 text-base"
-            display="h-8 w-8 block"
+            buttonText="Book Your Consultation"
+            className="px-4 py-6 text-base shimmer-box bg-orange-400 text-white hover:bg-orange-500"
             />
         </div>
         <div className="flex justify-center lg:justify-end">

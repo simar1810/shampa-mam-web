@@ -2,6 +2,7 @@
 import { Scale, Soup } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import BookConsultationButton from "./BookConsultationButton";
 
 export function GoalJourney() {
   const cardVariants = {
@@ -141,6 +142,9 @@ export function GoalJourney() {
             </Card>
           </motion.div>
         </div>
+        <div className="text-center">
+          <BookConsultationButton buttonText="Book Your Consultation" className="px-4 py-6 text-base shimmer-box bg-orange-400 text-white hover:bg-orange-500 mt-6" />
+          </div>
       </div>
     </section>
   );

@@ -54,7 +54,7 @@ export function Footer() {
             Results vary based on multiple factors such as gender, age,
             genetics, activity factor & compliance on Diet & other instructions.
           </p>
-          <BookConsultationButton buttonText="Book Your Consultation" className="px-4 py-4 text-base bg-transparent text-gray-800 hover:bg-gray-50 shadow-none ring-1" display="h-6 w-6 block"/>
+          <BookConsultationButton buttonText="Book Your Consultation" className="px-4 py-6 text-base shimmer-box bg-orange-400 text-white hover:bg-orange-500"/>
         </div>
       </div>
     </footer>
