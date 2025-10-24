@@ -16,7 +16,7 @@ export function ContactCTA() {
         <p className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
           +91-9152016080
         </p>
-        <div className="flex items-center justify-center gap-5">
+        <div className="flex flex-col items-center justify-center gap-5">
           <Link
           href="mailto:officialnutristudio@gmail.com"
           variant="outline"
@@ -25,7 +25,7 @@ export function ContactCTA() {
           <Mail className="h-6 w-6" />
           Get In Touch
           </Link>
-          <BookConsultationButton buttonText="Book Your Consultation" className="px-4 py-4 text-base bg-transparent text-gray-800 hover:bg-gray-50 shadow-none" display="h-6 w-6 block"/>
+          <BookConsultationButton buttonText="Book Your Consultation" className="px-4 py-6 text-base shimmer-box bg-orange-400 text-white hover:bg-orange-500"/>
         </div>
 
       </div>

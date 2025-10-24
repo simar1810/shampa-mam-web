@@ -439,90 +439,91 @@ export function ExpertiseAreas() {
 
       {/* Popup Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-          <div className="bg-white rounded-3xl w-full max-w-4xl shadow-2xl overflow-hidden animate-fadeIn border border-orange-200 relative">
-            <div className="flex flex-col md:flex-row h-full">
-              {/* Left Image */}
-              <div className="relative w-full md:w-1/2 h-60 md:h-auto">
-                <Image
-                  src={selectedItem.image || "/placeholder.svg"}
-                  alt={selectedItem.title}
-                  fill
-                  className="object-cover"
-                />
-                <button
-                  onClick={handleClosePopup}
-                  className="absolute top-4 right-4 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
-                >
-                  <X className="w-5 h-5 text-gray-600" />
-                </button>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-
-              {/* Right Content */}
-              <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
-                <div>
-                  <span
-                    className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${selectedItem.iconColor} bg-gray-100 mb-3`}
-                  >
-                    {selectedItem.category}
-                  </span>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900">
-                    {selectedItem.title}
-                  </h3>
-                  <p className="text-gray-700 text-base leading-relaxed mb-4">
-                    {selectedItem.description}
-                  </p>
-                  <div className="bg-gray-50 rounded-xl p-4 mb-4">
-                    <h4 className="font-semibold text-gray-900 mb-2">
-                      What's Included:
-                    </h4>
-                    <ul className="text-gray-700 space-y-1 text-sm">
-                      <li>• Personalized consultation and assessment</li>
-                      <li>• Customized meal plans and recipes</li>
-                      <li>• Ongoing support and monitoring</li>
-                      <li>• Evidence-based recommendations</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="mt-4 w-full flex flex-col gap-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    className="p-3 rounded-lg text-black border border-gray-300 focus:border-orange-400 focus:outline-none transition"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    className="p-3 rounded-lg text-black border border-gray-300 focus:border-orange-400 focus:outline-none transition"
-                  />
-                  <input
-                    type="tel"
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/50 backdrop-blur-sm p-3 sm:p-4">
+         <div
+           className="bg-white rounded-3xl w-full max-w-4xl shadow-2xl overflow-hidden animate-fadeIn border border-orange-200 relative h-[95vh] sm:h-auto sm:max-h-[95vh] flex flex-col"
+         >
+           <div className="flex flex-col md:flex-row h-full overflow-hidden">
+             <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-auto">
+               <Image
+                 src={selectedItem.image || '/placeholder.svg'}
+                 alt={selectedItem.title}
+                 fill
+                 className="object-cover"
+               />
+               <button
+                 onClick={handleClosePopup}
+                 className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+               >
+                 <X className="w-5 h-5 text-gray-600" />
+               </button>
+               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+             </div>
+                   <div className="w-full md:w-1/2 p-5 sm:p-6 flex flex-col justify-between overflow-y-auto">
+               <div>
+                 <span
+                   className={`inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${selectedItem.iconColor} bg-gray-100 mb-2 sm:mb-3`}
+                 >
+                   {selectedItem.category}
+                 </span>
+                 <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-gray-900">
+                   {selectedItem.title}
+                 </h3>
+                 <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 xl:mb-2 sm:mb-4">
+                   {selectedItem.description}
+                 </p>
+      
+                 <div className="bg-gray-50 rounded-xl p-3 sm:p-4 mb-4 xl:mb-2">
+                   <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">
+                     What's Included:
+                   </h4>
+                   <ul className="text-gray-700 space-y-1 text-xs sm:text-sm">
+                     <li>• Personalized consultation and assessment</li>
+                     <li>• Customized meal plans and recipes</li>
+                     <li>• Ongoing support and monitoring</li>
+                <li>• Evidence-based recommendations</li>
+                   </ul>
+                 </div>
+          </div>
+      
+                 <div className="mt-3 sm:mt-4 md:mt-2 w-full flex flex-col gap-3 sm:gap-4 pb-3 lg:pb-1">
+            <input
+                   type="text"
+                   placeholder="Your Name"
+              value={formData.name}
+                   onChange={(e) =>
+                     setFormData({ ...formData, name: e.target.value })
+                   }
+                   className="p-3 rounded-lg text-black border border-gray-300 focus:border-orange-400 focus:outline-none transition text-sm sm:text-base"
+                 />
+                 <input
+              type="email"
+                   placeholder="Your Email"
+              value={formData.email}
+                   onChange={(e) =>
+                     setFormData({ ...formData, email: e.target.value })
+              }
+                   className="p-3 rounded-lg text-black border border-gray-300 focus:border-orange-400 focus:outline-none transition text-sm sm:text-base"
+                 />
+                 <input
+              type="tel"
                     placeholder="Your Phone (10 digits)"
                     value={formData.phoneNumber}
                     onChange={(e) =>
-                      setFormData({ ...formData, phoneNumber: e.target.value })
-                    }
-                    className="p-3 rounded-lg text-black border border-gray-300 focus:border-orange-400 focus:outline-none transition"
-                    maxLength={10}
-                  />
-                  <button
-                    onClick={async () => {
-                      await openRazorpay();
-                      handleClosePopup();
-                    }}
-                    disabled={isLoading}
-                    className="bg-orange-400 shimmer-box text-white hover:bg-orange-500 px-8 py-4 text-lg font-bold rounded-lg shadow-lg transition duration-300 mt-2 w-full"
+                     setFormData({ ...formData, phoneNumber: e.target.value })
+                   }
+                   className="p-3 rounded-lg text-black border border-gray-300 focus:border-orange-400 focus:outline-none transition text-sm sm:text-base"
+              maxLength={10}
+                 />
+                 <button
+                         onClick={async () => {
+                     await openRazorpay();
+                     handleClosePopup();
+                   }}
+                   disabled={isLoading}
+                   className="bg-orange-400 shimmer-box text-white hover:bg-orange-500 px-6 py-3 sm:py-4 text-sm sm:text-lg font-bold rounded-lg shadow-lg transition duration-300 mt-2 w-full"
                   >
-                    {isLoading ? "Processing..." : "Pay & Book"}
+                    {isLoading ? 'Processing...' : 'Pay & Book'}
                   </button>
                 </div>
               </div>

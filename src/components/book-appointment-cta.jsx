@@ -23,20 +23,19 @@ export function BookAppointmentCTA() {
             <p className="text-4xl md:text-5xl font-bold text-custom-green-dark">
               +91-9152807080
             </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
             <Link
               href="https://wa.me/9152807080"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-custom-green-dark/90 w-full md:w-[25%] md:h-[15%] text-white px-8 py-6 text-lg font-semibold rounded-full shadow-md flex items-center gap-2"
+              className="bg-green-600 hover:bg-custom-green-dark/90 w-full md:w-[25%] md:h-[15%] text-white px-5 py-5 md:px-8 md:py-6 text-base md:text-lg font-semibold rounded-full shadow-md flex items-center gap-2"
             >
               <MessageCircle className="h-6 w-6" />
               CHAT ON WHATSAPP!
               </Link>
               <BookConsultationButton
                   buttonText="Book Your Consultation"
-                  className="w-full md:w-[25%] md:h-[15%] rounded-full px-8 py-6 text-base bg-amber-600 text-white"
-                  display="h-8 w-8 block"
+                  className="w-full md:w-[25%] md:h-[15%] px-4 py-6 text-lg shimmer-box bg-orange-400 text-white hover:bg-orange-500 rounded-full"
               />
             </div>
           </div>

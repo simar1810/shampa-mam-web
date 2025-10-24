@@ -2,12 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Book } from "lucide-react";
 
 export default function BookConsultationButton({
   buttonText = "Book Your Consultation",
   className = "",
-  display= "hidden"
+  
 }) {
   const [scriptLoaded, setScriptLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -245,7 +244,7 @@ const openRazorpay = async () => {
         onClick={() => setShowForm(true)}
         className={`font-bold rounded-md shadow-lg transition ${className}`}
       >
-        <Book className={`${display}`} /> {buttonText}
+         {buttonText}
       </Button>
 
       {showForm && (
