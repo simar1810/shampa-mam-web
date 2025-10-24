@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Mail } from "lucide-react";
 import Link from "next/link";
+import BookConsultationButton from "./BookConsultationButton";
 
 export function ContactCTA() {
   return (
@@ -15,14 +16,18 @@ export function ContactCTA() {
         <p className="text-2xl md:text-3xl font-bold text-gray-800 mb-8">
           +91-9152016080
         </p>
-        <Link
+        <div className="flex items-center justify-center gap-5">
+          <Link
           href="mailto:officialnutristudio@gmail.com"
           variant="outline"
-          className="px-8 py-6 text-lg font-semibold flex justify-center w-[15%] rounded-md border-gray-400 text-gray-800 hover:bg-gray-50 flex items-center gap-2 mx-auto bg-transparent"
-        >
+          className="text-lg font-semibold flex justify-center rounded-md border-gray-400 text-gray-800 hover:bg-gray-50 items-center gap-2 bg-transparent"
+          >
           <Mail className="h-6 w-6" />
           Get In Touch
-        </Link>
+          </Link>
+          <BookConsultationButton buttonText="Book Your Consultation" className="px-4 py-4 text-base bg-transparent text-gray-800 hover:bg-gray-50 shadow-none" display="h-6 w-6 block"/>
+        </div>
+
       </div>
     </section>
   );

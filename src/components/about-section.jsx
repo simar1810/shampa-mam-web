@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BookConsultationButton from "./BookConsultationButton";
 
 export function AboutSection() {
   return (
@@ -23,6 +24,11 @@ export function AboutSection() {
             practical, enjoyable nutrition strategies tailored to your unique
             needs.
           </p>
+           <BookConsultationButton
+              buttonText="Book Your Consultation"
+            className="px-4 py-6 text-base"
+            display="h-8 w-8 block"
+            />
         </div>
         <div className="flex justify-center lg:justify-end">
           <Image
