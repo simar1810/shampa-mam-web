@@ -68,7 +68,7 @@ export default function BookConsultationButton({
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            amount: 499,
+            amount: 199,
             note: { client: "Nutri_Studio" },
             type: "Nutri_Studio",
           }),
@@ -114,7 +114,7 @@ export default function BookConsultationButton({
         razorpay_order_id: paymentData.razorpay_order_id,
         razorpay_payment_id: paymentData.razorpay_payment_id,
         razorpay_signature: paymentData.razorpay_signature,
-        amount: 499,
+        amount: 199,
       };
       const verifyRes = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/razorpay/verify-order`,
@@ -288,7 +288,7 @@ const openRazorpay = async () => {
               disabled={isLoading}
               className="bg-orange-400 shimmer-box text-white hover:bg-orange-500 px-8 py-4 text-lg font-bold rounded-lg shadow-lg mt-8 w-full"
             >
-              {isLoading ? "Processing..." : "Pay ₹499 & Book"}
+              {isLoading ? "Processing..." : "Pay ₹199 & Book"}
             </Button>
           </div>
         </div>
